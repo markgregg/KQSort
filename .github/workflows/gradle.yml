@@ -34,8 +34,9 @@ jobs:
       uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
       with:
         arguments: build
-    - name: jacoco-reporter
-      uses: PavanMudigonda/jacoco-reporter@v4.7
+    - name: Test Reporter
+      uses: dorny/test-reporter@v1.6.0
       with:
-        coverage_results_path: ./build/jacocoHtml/jacoco-sessions.html
-        github_token: ${{ secrets.JACOCO }}
+        name: KQSort
+        path: /home/runner/work/KQSort/KQSort/build/test-results/test/TEST-FunctionalQuickSortTest.xml
+        reporter: java-junit
