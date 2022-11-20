@@ -34,7 +34,3 @@ jobs:
       uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
       with:
         arguments: build
-    - name: jacoco-reporter
-      uses: PavanMudigonda/jacoco-reporter@v4.7
-      with:
-        github_token: ${{ secrets.JACOCO }}
