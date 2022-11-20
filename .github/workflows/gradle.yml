@@ -38,6 +38,6 @@ jobs:
       uses: dorny/test-reporter@v1.6.0
       with:
         name: KQSort
-        path: build/test-results/test/TEST-*.xml
+        path: *.xml
         reporter: java-junit
         token: ${{ secrets.TEST_REPORTER }}
