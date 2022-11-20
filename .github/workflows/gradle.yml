@@ -35,8 +35,6 @@ jobs:
       with:
         arguments: build
     - name: jacoco-reporter
-  # You may pin to the exact commit or the version.
-  # uses: PavanMudigonda/jacoco-reporter@b16c4987b06b71853a8186d074c87a9144923e4f
-  uses: PavanMudigonda/jacoco-reporter@v4.7
-  with:
-    github_token: ${{ secrets.JACOCO }}
+      uses: PavanMudigonda/jacoco-reporter@v4.7
+      with:
+        github_token: ${{ secrets.JACOCO }}
