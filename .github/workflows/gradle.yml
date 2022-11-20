@@ -38,5 +38,5 @@ jobs:
       uses: dorny/test-reporter@v1.6.0
       with:
         name: KQSort
-        path: /home/runner/work/KQSort/KQSort/build/test-results/test/TEST-FunctionalQuickSortTest.xml
+        path: build/test-results/test/TEST-*.xml
         reporter: java-junit
