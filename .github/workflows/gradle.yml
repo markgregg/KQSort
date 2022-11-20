@@ -37,4 +37,5 @@ jobs:
     - name: jacoco-reporter
       uses: PavanMudigonda/jacoco-reporter@v4.7
       with:
+        coverage_results_path: ./build/jacocoHtml/jacoco-sessions.html
         github_token: ${{ secrets.JACOCO }}
