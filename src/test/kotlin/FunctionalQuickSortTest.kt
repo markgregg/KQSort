@@ -111,9 +111,6 @@ class FunctionalQuickSortTest : FunSpec() {
         }
         val difference = 1-(totalMyTime/iterations).toDouble()/(totalJavaTime/iterations).toDouble()
         println("Over $size ${if(threadSplitThreshold != 0) "threaded" else "" } KQ sort took ${totalMyTime/iterations}ns, java took ${totalJavaTime/iterations}ns, difference: ${percentFormatter.format(difference)} ${if(difference > 0) "faster" else "slower"}")
-        if( totalMyTime.toDouble() / totalJavaTime.toDouble() > 2 ) {
-            throw Exception("Java is 20% faster for $iterations of $size")
-        }
     }
 
     private fun createArray(size: Int): IntArray {
