@@ -40,3 +40,4 @@ jobs:
         name: KQSort
         path: build/test-results/test/TEST-*.xml
         reporter: java-junit
+        token: ${{ TEST-REPORTER_TOKEN }}
