@@ -1,43 +1,25 @@
 import io.kotest.core.spec.style.FunSpec
-import io.kotest.matchers.shouldBe
 import java.text.NumberFormat
 import java.util.*
 
-class FunctionalQuickSortTest : FunSpec() {
+class QuickSortTest : FunSpec() {
     private val buff = IntArray(500)
     private val random = Random()
     private val percentFormatter = NumberFormat.getPercentInstance(Locale.getDefault())
 
     init {
 
-        test("findPivot") {
+        test("quicksort X") {
             val a = intArrayOf(4, 67, 23, 10, 34, 5, 32, 48, 9)
-            findPivot(a, 0, a.size) shouldBe 34
-        }
-
-        test("pivot") {
-            val a = intArrayOf(4, 67, 23, 10, 34, 5, 32, 48, 9)
-            pivot(a, findPivot(a, 0, a.size),0, a.size-1 ) shouldBe 6
-        }
-
-        test("sort") {
-            val a = intArrayOf(4, 67, 23, 10, 34, 5, 32, 48, 9)
-            sort(
-                buff,
-                a,
-                0,
-                a.size,
-                0,
-                0,
-                0,
-                findPivot(a, 0, a.size),
-                a.size / 3,
-                false
-            )
-
+            println("Quick sort took ${functionTimer { a.quickSort() }}ns")
             validateArray(a)
         }
 
+        test("quicksort y") {
+            val a = intArrayOf(11, 67, 23, 10, 34, 5, 32, 48, 9)
+            println("Quick sort took ${functionTimer { a.quickSort() }}ns")
+            validateArray(a)
+        }
 
         test("quicksort 0") {
             val a = createArray(1000)
@@ -106,7 +88,7 @@ class FunctionalQuickSortTest : FunSpec() {
             val a1 = createArray(size)
             val a2 = a1.copyOf()
 
-            totalMyTime += functionTimer { a1.quickSort(threadSplitThreshold) }
+            totalMyTime += functionTimer { if( threadSplitThreshold == 0 ) a1.quickSort() else a1.quickSort(threadSplitThreshold) }
             totalJavaTime += functionTimer { Arrays.sort(a2) }
         }
         val difference = 1-(totalMyTime/iterations).toDouble()/(totalJavaTime/iterations).toDouble()
